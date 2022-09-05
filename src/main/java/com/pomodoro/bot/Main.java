@@ -7,8 +7,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
-import javax.swing.text.html.parser.TagElement;
-
+//@Slf4j
 public class Main {
 
     public static void main(String[] args) throws TelegramApiException {
@@ -29,6 +28,7 @@ public class Main {
         }
 
         private static int userCount = 0;
+
         @Override
         public void onUpdateReceived(Update update) {
             int userCount = 0;
@@ -37,7 +37,7 @@ public class Main {
 
                 if (update.getMessage().getText().equals("/start")) {
                     userCount++;
-                    sendMsg(chatId, "Привет, я попугай-бот. Буду повторять все  за тобой.");
+                    sendMsg(chatId, "Привет, я попугай-бот. Буду повторять все за тобой.");
                 } else {
                     sendMsg(chatId, update.getMessage().getText());
                 }
